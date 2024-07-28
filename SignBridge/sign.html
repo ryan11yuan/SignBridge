@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language to Text Converter</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <link href='css/sign.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <img src="images/logo.png" alt="SignBridge Logo" class="navbar-logo" onclick="goHome()">
+        <div class="navbar-links">
+            <a href="sign.html">Sign Language  →  Text</a>
+            <a href="speech.html">Speech  →  Text</a>
+        </div>
+    </div>
+
+    <div class="converter">
+        <h1>Sign Language to Text Converter</h1>
+
+        <div class="output-area" id="output">
+            Detected text will appear here...
+        </div>
+
+        <img class="image3" src="images/3.png">
+
+        <div class="home-button" id="homeButton" onclick="goHome()">
+            <img src="/images/home-icon.png" alt="Home" class="home-icon"> 
+        </div>
+
+    </div>
+
+    <script src="js/sign.js"></script>
+</body>
+</html>
