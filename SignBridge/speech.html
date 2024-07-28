@@ -17,17 +17,24 @@
     </div>
 
     <div class="converter">  
-        <h1>Speech to Text Converter</h1>
+        <h1>Sign Language to Text Converter</h1>
 
+        <div class="video-container">
+            <video id="videoElement" autoplay></video>
+        </div>
+
+        <div class="button-container">
+            <button id="startButton">Start Recording</button>
+            <button id="stopButton" disabled>Stop Recording</button>
+        </div>
 
         <div class="output-area" id="outputArea">
             Detected text will appear here...
         </div>
 
         <div class="home-button" id="homeButton" onclick="goHome()">
-            <img src="/images/home-icon.png" alt="Home" class="home-icon"> 
+            <img src="/images/home-icon.png" alt="Home" class="home-icon">
         </div>
-
     </div>
 
     <script src="js/sign.js"></script>
