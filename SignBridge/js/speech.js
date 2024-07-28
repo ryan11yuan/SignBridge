@@ -1,64 +1,37 @@
-let mediaRecorder;
-let recordedChunks = [];
+const askQuestionButton = document.getElementById('askQuestionButton');
+const questionContainer = document.getElementById('questionContainer');
+const submitQuestionButton = document.getElementById('submitQuestionButton');
+const questionInput = document.getElementById('questionInput');
 
-const videoElement = document.getElementById('videoElement');
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
-const outputArea = document.getElementById('outputArea');
+askQuestionButton.addEventListener('click', () => {
+    questionContainer.style.display = 'block';
+});
 
-startButton.addEventListener('click', startRecording);
-stopButton.addEventListener('click', stopRecording);
-
-async function startRecording() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        videoElement.srcObject = stream;
-
-        mediaRecorder = new MediaRecorder(stream);
-
-        mediaRecorder.ondataavailable = (event) => {
-            if (event.data.size > 0) {
-                recordedChunks.push(event.data);
-            }
-        };
-
-        mediaRecorder.start();
-        startButton.disabled = true;
-        stopButton.disabled = false;
-        outputArea.textContent = 'Recording...';
-    } catch (error) {
-        console.error('Error accessing media devices:', error);
-        outputArea.textContent = 'Error accessing camera and microphone.';
+submitQuestionButton.addEventListener('click', () => {
+    const question = questionInput.value;
+    if (question) {
+        sendQuestionToPython(question);
+        questionContainer.style.display = 'none';
+        questionInput.value = '';
+    } else {
+        alert('Please enter a question.');
     }
-}
+});
 
-function stopRecording() {
-    mediaRecorder.stop();
-    startButton.disabled = false;
-    stopButton.disabled = true;
-    outputArea.textContent = 'Processing...';
-
-    mediaRecorder.onstop = () => {
-        const blob = new Blob(recordedChunks, { type: 'video/webm' });
-        sendRecordingToPython(blob);
-        recordedChunks = [];
-    };
-}
-
-function sendRecordingToPython(blob) {
-    const formData = new FormData();
-    formData.append('video', blob, 'recording.webm');
-
-    fetch('/process_video', {
+function sendQuestionToPython(question) {
+    fetch('/ask_question', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question: question }),
     })
-    .then(response => response.text())
-    .then(result => {
-        outputArea.textContent = 'Detected text: ' + result;
+    .then(response => response.json())
+    .then(data => {
+        outputArea.textContent = 'Response: ' + data.response;
     })
     .catch(error => {
-        console.error('Error sending video to server:', error);
-        outputArea.textContent = 'Error processing video.';
+        console.error('Error:', error);
+        outputArea.textContent = 'Error processing question.';
     });
 }

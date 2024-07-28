@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Language to Text Converter</title>
+    <title>AI Note-Taker</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
     <link href='css/speech.css' rel='stylesheet'>
 </head>
@@ -12,12 +12,12 @@
         <img src="images/logo.png" alt="SignBridge Logo" class="navbar-logo" onclick="goHome()">
         <div class="navbar-links">
             <a href="sign.html">Sign Language  →  Text</a>
-            <a href="speech.html">Speech  →  Text</a>
+            <a href="speech.html">Speech  →  Notes</a>
         </div>
     </div>
 
-    <div class="converter">  
-        <h1>Sign Language to Text Converter</h1>
+    <div class="converter">
+        <h1>AI Note-Taker + Questions</h1>
 
         <div class="video-container">
             <video id="videoElement" autoplay></video>
@@ -26,6 +26,12 @@
         <div class="button-container">
             <button id="startButton">Start Recording</button>
             <button id="stopButton" disabled>Stop Recording</button>
+            <button id="askQuestionButton">Ask Question</button>
+        </div>
+
+        <div id="questionContainer" style="display:none;">
+            <input type="text" id="questionInput" placeholder="Enter your question here">
+            <button id="submitQuestionButton">Submit</button>
         </div>
 
         <div class="output-area" id="outputArea">
