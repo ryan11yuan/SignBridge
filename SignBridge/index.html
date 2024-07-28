@@ -1,26 +1,41 @@
-<link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
-<link href='style.css' rel='stylesheet'>
-
-
-<div class="hero">
-
-    <h1><span>SignBridge</span><br>Navigation</h1>
-
-    <div class="mouse">
-        <span></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignBridge</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <link href='css/style.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <img src="images/logo.png" alt="SignBridge Logo" class="navbar-logo" onclick="goHome()">
+        <div class="navbar-links">
+            <a href="sign.html">Sign Language  →  Text</a>
+            <a href="speech.html">Speech  →  Text</a>
+        </div>
     </div>
 
-</div>
+    <div class="hero">
+        <h1><span>SignBridge</span><br>Navigation</h1>
+        <div class="mouse">
+            <span></span>
+        </div>
+    </div>
 
-<div class="row content">
-    <h1 class="sec01">About</h1>
-    <p>SignBridge is an innovative application that translates spoken language into sign language in real-time, creating a seamless communication bridge for the deaf and hard-of-hearing community.</p>
-    
-    <button id="button">Get Started</button>
-</div>
+    <div class="row content" id="about">
+        <h1 class="sec01">About</h1>
+        <p>SignBridge is an innovative application that translates spoken language into sign language in real-time, creating a seamless communication bridge for the deaf and hard-of-hearing community.</p>
+        
+        <img class='image1' src="images/1.png">
 
-<script src="script.js"></script>
+        <h1 class="sec01">How Did We Do This?</h1>
+        <p>The creation of SignBridge was driven by our commitment to fostering inclusivity and enhancing communication for the deaf and hard-of-hearing community. Our team leveraged state-of-the-art technologies and collaborated with experts in the field of sign language interpretation to develop a seamless and reliable platform.</p>
+        
 
-<body>
-    
+        <button id="button">Get Started</button>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
+</html>
