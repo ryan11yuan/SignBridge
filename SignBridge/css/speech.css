@@ -80,6 +80,11 @@ body {
   clear: both;
 }
 
+.image2{
+  width: 600px;
+  height: 300px;
+}
+
 .home-button {
     position: fixed;
     bottom: 20px;
