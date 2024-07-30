@@ -6,3 +6,12 @@ Demo Videos:
 
 https://github.com/user-attachments/assets/b48b937c-cd10-4f26-b147-0c8eb2c945ec
 
+
+
+https://github.com/user-attachments/assets/4e5b0c84-a694-4786-b14d-c1c525f255b9
+
+
+
+Backend Sign Language Detector:
+
+![Screenshot 2024-07-29 231523](https://github.com/user-attachments/assets/d2ede891-2372-4833-ac10-84fe2d28a52e)
